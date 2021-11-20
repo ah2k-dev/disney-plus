@@ -31,7 +31,7 @@ function Header() {
                 </a>
 
             </NavMenu>
-            <UserImg src="https://i.ibb.co/zsdPXYd/mee.jpg"/>
+            <UserImg src="https://i.ibb.co/zsdPXYd/mee.jpg" />
         </Nav>
     )
 }
@@ -39,6 +39,7 @@ function Header() {
 export default Header
 
 const Nav = styled.div`
+    overflow-x: hidden;
     height: 70px;
     background: #090b13;
     display: flex;
