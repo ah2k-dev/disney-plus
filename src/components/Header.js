@@ -6,7 +6,7 @@ import { auth, provider } from '../firebase'
 import { useNavigate } from "react-router-dom"
 function Header() {
     const dispatch = useDispatch()
-    const history = useNavigate()
+    const navigate = useNavigate()
     const username = useSelector(selectUsername)
     const userphoto = useSelector(selectUserphoto)
     useEffect(() => {
@@ -17,7 +17,7 @@ function Header() {
                     email: user.email,
                     photo: user.photoURL
                 }))
-                history.push("/")
+                navigate("/")
             }
         })
     }, [])
@@ -30,14 +30,14 @@ function Header() {
                     email: user.email,
                     photo: user.photoURL
                 }))
-                history.push("/")
+                navigate("/")
             })
     }
     const signOut = () => {
         auth.signOut()
             .then(() => {
                 dispatch(setSignOut())
-                history.push("/login")
+                navigate("/login")
             })
     }
     return (
@@ -77,7 +77,7 @@ function Header() {
                         </a>
 
                     </NavMenu>
-                    <UserImg src={userphoto} />
+                    <UserImg onClick={signOut} src={userphoto} />
                 </>
             }
         </Nav>
