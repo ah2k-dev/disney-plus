@@ -8,7 +8,7 @@ function Login() {
                 <CtaLogo1 src="/images/cta-logo-one.svg" />
                 <Signup>GET THE DISNEY BUNDLE</Signup>
                 <Description>
-                Get The Disney Bundle to stream the best movies, shows, and sports with Disney+, Hulu, and ESPN+. Terms Apply. Learn more about The Disney Bundle.
+                    Get The Disney Bundle to stream the best movies, shows, and sports with Disney+, Hulu, and ESPN+. Terms Apply. Learn more about The Disney Bundle.
                 </Description>
                 <CtaLogo2 src="/images/cta-logo-two.png" />
 

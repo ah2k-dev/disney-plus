@@ -1,38 +1,54 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
+import { useParams } from 'react-router'
+import db from '../firebase'
 function Detail() {
+    const { id } = useParams()
+    const [movie, setMovie] = useState()
+    useEffect(() => {
+        db.collection("movies")
+            .doc(id)
+            .get()
+            .then((doc) => {
+                setMovie(doc.data())
+            })
+    }, [])
     return (
         <Container>
-            <Background>
-                <img src="https://i.ibb.co/4wy92TF/up.jpg" />
-            </Background>
-            <ImageTitle>
-                <img src="/images/viewers-pixar.png" />
+            {movie && (
+                <>
+                    <Background>
+                        <img src={movie.backgroundImg} />
+                    </Background>
+                    <ImageTitle>
+                        <img src={movie.titleImg} />
 
-            </ImageTitle>
-            <Controls>
-                <PlayButton>
-                    <img src="/images/play-icon-black.png" />
-                    <span>PLAY</span>
-                </PlayButton>
-                <TrailerButton>
-                    <img src="/images/play-icon-white.png" />
-                    <span>Trailer</span>
-                </TrailerButton>
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
-                <GroupwatchButton>
-                    <img src="/images/group-icon.png" />
-                </GroupwatchButton>
-            </Controls>
-            <Subtitle>
-                Dummy text
-            </Subtitle>
-            <Description>
-                sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-            </Description>
+                    </ImageTitle>
+                    <Controls>
+                        <PlayButton>
+                            <img src="/images/play-icon-black.png" />
+                            <span>PLAY</span>
+                        </PlayButton>
+                        <TrailerButton>
+                            <img src="/images/play-icon-white.png" />
+                            <span>Trailer</span>
+                        </TrailerButton>
+                        <AddButton>
+                            <span>+</span>
+                        </AddButton>
+                        <GroupwatchButton>
+                            <img src="/images/group-icon.png" />
+                        </GroupwatchButton>
+                    </Controls>
+                    <Subtitle>
+                        {movie.subtitle}
+                    </Subtitle>
+                    <Description>
+                        {movie.description}
+                    </Description>
+                </>
+            )}
         </Container>
     )
 }

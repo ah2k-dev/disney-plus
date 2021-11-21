@@ -8,17 +8,17 @@ function Viewers() {
             </Wrap>
             <Wrap>
                 <img src="/images/viewers-pixar.png" />
-            </Wrap>        
+            </Wrap>
             <Wrap>
                 <img src="/images/viewers-marvel.png" />
-            </Wrap>        
+            </Wrap>
             <Wrap>
                 <img src="/images/viewers-starwars.png" />
-            </Wrap>        
+            </Wrap>
             <Wrap>
                 <img src="/images/viewers-national.png" />
-            </Wrap>        
-        
+            </Wrap>
+
         </Container>
     )
 }
